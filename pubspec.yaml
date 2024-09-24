@@ -43,7 +43,6 @@ dependencies:
   intl:
   flutter_pannable_rating_bar: ^2.7.2+1
   cached_network_image: ^3.4.1
-  scrollable_tab_view: ^1.0.9
 
 dev_dependencies:
   flutter_test:

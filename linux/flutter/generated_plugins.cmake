@@ -3,7 +3,6 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  scrollable_tab_view
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

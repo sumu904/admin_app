@@ -9,4 +9,5 @@ class AppConstants {
   static const String theme = 'admin_theme';
 
   static const String categorizedOrdersUri = '/v1/admin/order/list/categorized';
+  static const String orderDetailsUri = '/v1/admin/order/details/';
 }

@@ -38,7 +38,8 @@ init() async {
   // Controller
   Get.lazyPut(() => ThemeController(sharedPreferences: Get.find()));
   Get.lazyPut(() => SplashController(splashServiceInterface: Get.find()));
-  Get.lazyPut(() => OrderController(orderServiceInterface: Get.find()));
+  Get.lazyPut(() => OrderController(orderServiceInterface: Get.find(),orderRepository: Get.find()));
+  Get.lazyPut(() => OrderRepository(apiClient: Get.find(),sharedPreferences: Get.find()));
 
 
 }

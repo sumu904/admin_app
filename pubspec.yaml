@@ -40,7 +40,10 @@ dependencies:
   http: ^1.2.1
   connectivity_plus: ^5.0.2
   http_parser: ^4.0.2
-  easy_stepper: ^0.8.5+1
+  intl:
+  flutter_pannable_rating_bar: ^2.7.2+1
+  cached_network_image: ^3.4.1
+  scrollable_tab_view: ^1.0.9
 
 dev_dependencies:
   flutter_test:

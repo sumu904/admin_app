@@ -21,7 +21,7 @@ class CategorizedOrderModel {
     handover = List<OrderModel>.from(
         json['handover'].map((item) => OrderModel.fromJson(item)));
     outForDelivery = List<OrderModel>.from(
-        json['outForDelivery'].map((item) => OrderModel.fromJson(item)));
+        json['out_for_delivery'].map((item) => OrderModel.fromJson(item)));
   }
 
   Map<String, dynamic> toJson() {
@@ -29,7 +29,7 @@ class CategorizedOrderModel {
       'pending': pending.map((v) => v.toJson()).toList(),
       'processing': processing.map((v) => v.toJson()).toList(),
       'handover': handover.map((v) => v.toJson()).toList(),
-      'outForDelivery': outForDelivery.map((v) => v.toJson()).toList(),
+      'out_for_delivery': outForDelivery.map((v) => v.toJson()).toList(),
     };
   }
 }

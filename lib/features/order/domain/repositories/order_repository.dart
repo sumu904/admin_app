@@ -1,5 +1,6 @@
 import 'package:admin_app/api/api_client.dart';
 import 'package:admin_app/features/order/domain/models/categorized_order_model.dart';
+import 'package:admin_app/features/order/domain/models/order_details.dart';
 import 'package:admin_app/features/order/domain/models/order_model.dart';
 import 'package:admin_app/features/order/domain/repositories/order_repository_interface.dart';
 import 'package:admin_app/util/app_constants.dart';
@@ -36,6 +37,16 @@ class OrderRepository implements OrderRepositoryInterface {
     }
     print('Error: Received status code ${response.statusCode}');
     return null;
+  }
+
+  @override
+  Future<OrderDetailsModel?> getOrderDetails({required String orderId}) async {
+    OrderDetailsModel? orderDetailsModel;
+    Response response = await apiClient.getData('${AppConstants.orderDetailsUri}$orderId');
+    if (response.statusCode == 200) {
+      orderDetailsModel = OrderDetailsModel.fromJson(response.body);
+    }
+    return orderDetailsModel;
   }
 
   @override

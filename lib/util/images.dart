@@ -9,4 +9,9 @@ class Images {
   static const String oneMomentIcon = 'assets/image/one_moment_icon.png';
   static const String emailIcon = 'assets/image/email_icon.png';
   static const String passwordIcon = 'assets/image/password_icon.png';
+  static const String placeholder = 'assets/image/placeholder.jpg';
+  static const String callIcon = 'assets/image/call_icon.png';
+  static const String messageIcon = 'assets/image/message_icon.png';
+  static const String deliverymanIcon = 'assets/image/deliverman_icon.png';
+  static const String noteIcon = 'assets/image/note_icon.png';
 }

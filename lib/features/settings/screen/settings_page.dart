@@ -97,9 +97,9 @@ class _SettingsPageState extends State<SettingsPage> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsets.only(left: 10,right: 10),
-                                              child: Icon(settingsModel[index].icon, color: (selectedIndex == index) ? AppColors.primaryClr : AppColors.grey6,),
+                                              child: Icon(settingsModel[index].icon, color: (selectedIndex == index) ? AppColors.primaryClr : AppColors.grey6,size: 18,),
                                             ),
-                                            Text("${settingsModel[index].title}")
+                                            Text("${settingsModel[index].title}",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault),)
           
                                           ],
                                         ),

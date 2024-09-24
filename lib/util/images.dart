@@ -14,4 +14,5 @@ class Images {
   static const String messageIcon = 'assets/image/message_icon.png';
   static const String deliverymanIcon = 'assets/image/deliverman_icon.png';
   static const String noteIcon = 'assets/image/note_icon.png';
+  static const String card = 'assets/image/Card.png';
 }

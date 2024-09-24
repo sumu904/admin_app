@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../util/colors.dart';
 import '../../../../util/dimensions.dart';
+import '../../../../util/images.dart';
 import '../../../../util/styles.dart';
 
 class OrderHistoryPage extends StatefulWidget {
@@ -19,7 +21,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
         .size;
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 25,vertical: 25),
+        padding: EdgeInsets.only(left: 25,top: 25,right: 50,bottom: 25),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,7 +35,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                     padding: EdgeInsets.only(top: 30,left: 20),
                     margin: EdgeInsets.only(right: 12),
                     decoration: BoxDecoration(
-                        color: AppColors.grey8,
+                        color: AppColors.grey10,
                         borderRadius: BorderRadius.circular(12)
                     ),
                     child: Column(
@@ -50,7 +52,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                     padding: EdgeInsets.only(top: 30,left: 20),
                     margin: EdgeInsets.only(right: 12),
                     decoration: BoxDecoration(
-                        color: AppColors.grey8,
+                        color: AppColors.grey10,
                         borderRadius: BorderRadius.circular(12)
                     ),
                     child: Column(
@@ -66,7 +68,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                     width: size.width*0.20,
                     padding: EdgeInsets.only(top: 30,left: 20),
                     decoration: BoxDecoration(
-                        color: AppColors.grey8,
+                        color: AppColors.grey10,
                         borderRadius: BorderRadius.circular(12)
                     ),
                     child: Column(
@@ -79,32 +81,185 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                   )
                 ],
               ),
-              /* ListView.builder(
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            scrollDirection: Axis.vertical,
-                            itemCount: 5,
-                            itemBuilder: (context,index){
-                              return Column(
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    width: 100,
-                                    color: Colors.red,
-                                  ),
-                                  Container(
-                                    height: 100,
-                                    width: 100,
-                                    color: Colors.blue,
-                                  ),
-                                  Container(
-                                    height: 100,
-                                    width: 100,
-                                    color: Colors.yellow,
-                                  ),
-                                ],
-                              );
-                            }),*/
+              SizedBox(height: 30,),
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(left: 10,top: 20,right: 70,bottom: 20),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "Order #204",
+                                style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault),
+                              ),
+                              const Spacer(),
+                              Text(
+                                "10:00 PM, 12 August 2024",
+                                style: robotoRegular.copyWith(color: AppColors.grey5, fontSize: Dimensions.fontSizeSmall),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5,),
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 1),
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).cardColor,
+                                  border: Border.all(color: Theme.of(context).primaryColor, width: 1),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Text("Delivery",
+                                  style: robotoRegular.copyWith(color: Theme.of(context).primaryColor,fontSize: Dimensions.fontSizeSmall),
+                                ),
+                              ),
+                              const SizedBox(width: 7),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4, right: 12),
+                                child: CircleAvatar(backgroundColor: Theme.of(context).textTheme.bodyLarge?.color, maxRadius: 2),
+                              ),
+
+                              Image.asset(Images.cash, height: 15),
+                              const SizedBox(width: 8),
+
+                              Text("Cash Payment",
+                                style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 7,),
+                          Row(
+                            children: [
+                              Icon(Icons.person_2_outlined,size: 20,),
+                              const SizedBox(width: 5),
+                              Text("Customer Name",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall)),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    Divider(indent: 10,endIndent: 70,color: AppColors.grey9,),
+                    Container(
+                      padding: EdgeInsets.only(left: 10,top: 20,right: 70,bottom: 20),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "Order #204",
+                                style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault),
+                              ),
+                              const Spacer(),
+                              Text(
+                                "10:00 PM, 12 August 2024",
+                                style: robotoRegular.copyWith(color: AppColors.grey5, fontSize: Dimensions.fontSizeSmall),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5,),
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 1),
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).cardColor,
+                                  border: Border.all(color: Theme.of(context).primaryColor, width: 1),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Text("Pickup",
+                                  style: robotoRegular.copyWith(color: Theme.of(context).primaryColor,fontSize: Dimensions.fontSizeSmall),
+                                ),
+                              ),
+                              const SizedBox(width: 7),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4, right: 12),
+                                child: CircleAvatar(backgroundColor: Theme.of(context).textTheme.bodyLarge?.color, maxRadius: 2),
+                              ),
+
+                              Image.asset(Images.card, height: 20),
+                              const SizedBox(width: 10),
+
+                              Text("Cash Payment",
+                                style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 7,),
+                          Row(
+                            children: [
+                              Icon(Icons.person_2_outlined,size: 20,),
+                              const SizedBox(width: 5),
+                              Text("Customer Name",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall)),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    Divider(indent: 10,endIndent: 70,color: AppColors.grey9,),
+                    Container(
+                      padding: EdgeInsets.only(left: 10,top: 20,right: 70,bottom: 20),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "Order #204",
+                                style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault),
+                              ),
+                              const Spacer(),
+                              Text(
+                                "10:00 PM, 12 August 2024",
+                                style: robotoRegular.copyWith(color: AppColors.grey5, fontSize: Dimensions.fontSizeSmall),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5,),
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 1),
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).cardColor,
+                                  border: Border.all(color: Theme.of(context).primaryColor, width: 1),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Text("Delivery",
+                                  style: robotoRegular.copyWith(color: Theme.of(context).primaryColor,fontSize: Dimensions.fontSizeSmall),
+                                ),
+                              ),
+                              const SizedBox(width: 7),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 4, right: 12),
+                                child: CircleAvatar(backgroundColor: Theme.of(context).textTheme.bodyLarge?.color, maxRadius: 2),
+                              ),
+
+                              Image.asset(Images.cash, height: 15),
+                              const SizedBox(width: 10),
+
+                              Text("Cash Payment",
+                                style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 7,),
+                          Row(
+                            children: [
+                              Icon(Icons.person_2_outlined,size: 20,),
+                              const SizedBox(width: 5),
+                              Text("Customer Name",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall)),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    Divider(indent: 10,endIndent: 70,color: AppColors.grey9,),
+                  ],
+                ),
+              )
             ]),
       ),
     );

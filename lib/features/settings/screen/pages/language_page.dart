@@ -67,7 +67,7 @@ class _LanguagePageState extends State<LanguagePage> {
                           decoration: BoxDecoration(
                               color: AppColors.secondaryLight,
                               borderRadius: BorderRadius.circular(12),
-                              border: Border.all(width: 1,color: AppColors.primaryClr)
+                              border: Border.all(width: 1,color: Theme.of(context).primaryColor)
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,

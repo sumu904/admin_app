@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pannable_rating_bar/flutter_pannable_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:readmore/readmore.dart';
 
 
 class ShopInfoScreen extends StatefulWidget {
@@ -23,12 +24,569 @@ class ShopInfoScreen extends StatefulWidget {
 }
 
 class _ShopInfoScreenState extends State<ShopInfoScreen> {
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool isSwitched = false;
   double rating = 3;
   @override
   Widget build(BuildContext context) {
     var size=MediaQuery.of(context).size;
     return   Scaffold(
+      key: _scaffoldKey,
+      endDrawer: Container(
+        width: 358,
+        child: Drawer(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(0),
+                bottomLeft: Radius.circular(0)),
+          ),
+          child: SingleChildScrollView(
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Stack(
+                    children: [
+                      ClipRRect(
+                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8),bottomRight: Radius.circular(8)),
+                          child: Image.asset("assets/image/IMG.png",fit: BoxFit.cover,)),
+                      Positioned(
+                          bottom: 310,
+                          left: 20,
+                          child: InkWell(
+                            onTap: (){
+                              Get.back();
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(color: Theme.of(context).hintColor.withOpacity(0.1), width: 1),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              padding: const EdgeInsets.all(8),
+                              child: const Icon(Icons.arrow_back, size: 20),
+                            ),
+                          ),)
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                              Text("Double Whooper",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeExtraLarge),),
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 8,vertical: 4),
+                                decoration: BoxDecoration(
+                                    color: AppColors.yellow,
+                                    borderRadius: BorderRadius.circular(15)
+                                ),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.star,color: Colors.black,size: 16,),
+                                    SizedBox(width: 8,),
+                                    Text("4.85",style: robotoMedium,)
+                                  ],
+                                ),
+                              ),
+                          ],
+                        ),
+                        Text("\$5.65",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault,color: Theme.of(context).primaryColor),),
+                        SizedBox(height: 10,),
+                    ReadMoreText(
+                      'Flame-grilled beef patties with juicy tomatoes, crisp lettuce, creamy mayonnaise ketchup.',textAlign: TextAlign.justify,
+                      trimMode: TrimMode.Line,
+                      trimLines: 1,
+                      colorClickableText: Theme.of(context).primaryColor,
+                      trimCollapsedText: 'Read more',
+                      trimExpandedText: 'Read less',
+                      moreStyle: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault,fontWeight: FontWeight.w700),
+                    ),
+                        //Text("Flame-grilled beef patties with juicy tomatoes, crisp lettuce, creamy mayonnaise ketchup... Read more",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall),),
+                        SizedBox(height: 15,),
+                        Container(
+                          height: size.height*0.14,
+                          width: size.width*0.328,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(width: 1,color: AppColors.grey8)
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 12,top: 8,right: 12,bottom: 4),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Available",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall),),
+                                    Row(
+                                      children: [
+                                        Container(
+                                            //margin: EdgeInsets.only(left: 20),
+                                            //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                            child:CustomSwitch(
+                                              value: isSwitched,
+                                              onChanged: (value){
+                                                setState(() {
+                                                  isSwitched=!isSwitched;
+                                                });
+                                              },
+                                              width: 52,
+                                              height: 30,
+                                              enableColor: Theme.of(context).primaryColor,
+                                              disableColor: AppColors.grey8,
+                                              switchHeight: 50,switchWidth: 27,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Divider(color: AppColors.grey8,),
+                              Padding(
+                                padding: EdgeInsets.only(left: 12,top: 4,right: 12,bottom: 6),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Recommended",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall),),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          //margin: EdgeInsets.only(left: 20),
+                                          //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                            child:CustomSwitch(
+                                              value: isSwitched,
+                                              onChanged: (value){
+                                                setState(() {
+                                                  isSwitched=!isSwitched;
+                                                });
+                                              },
+                                              width: 52,
+                                              height: 30,
+                                              enableColor: Theme.of(context).primaryColor,
+                                              disableColor: AppColors.grey8,
+                                              switchHeight: 50,switchWidth: 27,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 15,),
+                        Text("Variations",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault),),
+                        SizedBox(height: 10,),
+                        Text("Roast beef/Asado",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault,color: AppColors.grey3),),
+                        SizedBox(height: 10,),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: AppColors.grey9)
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    flex: 10,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                          color: AppColors.grey10,
+                                            borderRadius: BorderRadius.only(topLeft: Radius.circular(8)),
+                                        ),
+                                        padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                        child: Text("Items",style: robotoRegular.copyWith(color: AppColors.grey3),)),
+                                  ), Expanded(
+                                    flex: 5,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                          color: AppColors.grey10,
+                                          borderRadius: BorderRadius.only(topRight: Radius.circular(8)),
+                                        ),
+                                        padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                        child: Text("Available",style: robotoRegular.copyWith(color: AppColors.grey3),)),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20,bottom: 5,top: 10,right: 35),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Roast beef",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall),),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          //margin: EdgeInsets.only(left: 20),
+                                          //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                            child:CustomSwitch(
+                                              value: isSwitched,
+                                              onChanged: (value){
+                                                setState(() {
+                                                  isSwitched=!isSwitched;
+                                                });
+                                              },
+                                              width: 52,
+                                              height: 30,
+                                              enableColor: Theme.of(context).primaryColor,
+                                              disableColor: AppColors.grey8,
+                                              switchHeight: 50,switchWidth: 27,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Divider(color: AppColors.grey8,),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20,bottom: 10,top: 5,right: 35),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Asado",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall),),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          //margin: EdgeInsets.only(left: 20),
+                                          //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                            child:CustomSwitch(
+                                              value: isSwitched,
+                                              onChanged: (value){
+                                                setState(() {
+                                                  isSwitched=!isSwitched;
+                                                });
+                                              },
+                                              width: 52,
+                                              height: 30,
+                                              enableColor: Theme.of(context).primaryColor,
+                                              disableColor: AppColors.grey8,
+                                              switchHeight: 50,switchWidth: 27,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 15,),
+                        Text("Degree of action",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault,color: AppColors.grey3),),
+                        SizedBox(height: 10,),
+                        Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: AppColors.grey9)
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    flex: 10,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                          color: AppColors.grey10,
+                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(8)),
+                                        ),
+                                        padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                        child: Text("Items",style: robotoRegular.copyWith(color: AppColors.grey3),)),
+                                  ), Expanded(
+                                    flex: 5,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                          color: AppColors.grey10,
+                                          borderRadius: BorderRadius.only(topRight: Radius.circular(8)),
+                                        ),
+                                        padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                        child: Text("Available",style: robotoRegular.copyWith(color: AppColors.grey3),)),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20,bottom: 5,top: 10,right: 35),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Raw",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall),),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          //margin: EdgeInsets.only(left: 20),
+                                          //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                            child:CustomSwitch(
+                                              value: isSwitched,
+                                              onChanged: (value){
+                                                setState(() {
+                                                  isSwitched=!isSwitched;
+                                                });
+                                              },
+                                              width: 52,
+                                              height: 30,
+                                              enableColor: Theme.of(context).primaryColor,
+                                              disableColor: AppColors.grey8,
+                                              switchHeight: 50,switchWidth: 27,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Divider(color: AppColors.grey8,),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20,bottom: 5,top: 5,right: 35),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Medium",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall),),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          //margin: EdgeInsets.only(left: 20),
+                                          //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                            child:CustomSwitch(
+                                              value: isSwitched,
+                                              onChanged: (value){
+                                                setState(() {
+                                                  isSwitched=!isSwitched;
+                                                });
+                                              },
+                                              width: 52,
+                                              height: 30,
+                                              enableColor: Theme.of(context).primaryColor,
+                                              disableColor: AppColors.grey8,
+                                              switchHeight: 50,switchWidth: 27,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Divider(color: AppColors.grey8,),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20,bottom: 5,top: 5,right: 35),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Well",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall),),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          //margin: EdgeInsets.only(left: 20),
+                                          //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                            child:CustomSwitch(
+                                              value: isSwitched,
+                                              onChanged: (value){
+                                                setState(() {
+                                                  isSwitched=!isSwitched;
+                                                });
+                                              },
+                                              width: 52,
+                                              height: 30,
+                                              enableColor: Theme.of(context).primaryColor,
+                                              disableColor: AppColors.grey8,
+                                              switchHeight: 50,switchWidth: 27,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Divider(color: AppColors.grey8,),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20,bottom: 10,top: 5,right: 35),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Well Done",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall),),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          //margin: EdgeInsets.only(left: 20),
+                                          //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                            child:CustomSwitch(
+                                              value: isSwitched,
+                                              onChanged: (value){
+                                                setState(() {
+                                                  isSwitched=!isSwitched;
+                                                });
+                                              },
+                                              width: 52,
+                                              height: 30,
+                                              enableColor: Theme.of(context).primaryColor,
+                                              disableColor: AppColors.grey8,
+                                              switchHeight: 50,switchWidth: 27,
+                                            )),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 15,),
+                        Divider(color: AppColors.grey8,),
+                        SizedBox(height: 25,),
+                        Text("Add-ons",style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault),),
+                        SizedBox(height: 10,),
+                        Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: AppColors.grey9)
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    flex: 10,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                          color: AppColors.grey10,
+                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(8)),
+                                        ),
+                                        padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                        child: Text("Items",style: robotoRegular.copyWith(color: AppColors.grey3),)),
+                                  ), Expanded(
+                                    flex: 5,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                          color: AppColors.grey10,
+                                          borderRadius: BorderRadius.only(topRight: Radius.circular(8)),
+                                        ),
+                                        padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                        child: Text("Available",style: robotoRegular.copyWith(color: AppColors.grey3),)),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20,top: 10,right: 35),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("Cheese",style: robotoMedium.copyWith(fontSize: Dimensions.fontSizeDefault),),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              //margin: EdgeInsets.only(left: 20),
+                                              //padding: EdgeInsets.only(top: 10),
+                                                child:CustomSwitch(
+                                                  value: isSwitched,
+                                                  onChanged: (value){
+                                                    setState(() {
+                                                      isSwitched=!isSwitched;
+                                                    });
+                                                  },
+                                                  width: 52,
+                                                  height: 30,
+                                                  enableColor: Theme.of(context).primaryColor,
+                                                  disableColor: AppColors.grey8,
+                                                  switchHeight: 50,switchWidth: 27,
+                                                )),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Text("\$0.75",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall,color: AppColors.grey4),),
+                                  ],
+                                ),
+                              ),
+                              Divider(color: AppColors.grey8,),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20,top: 5,right: 35),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("Mushrooms",style: robotoMedium.copyWith(fontSize: Dimensions.fontSizeDefault),),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              //margin: EdgeInsets.only(left: 20),
+                                              //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                                child:CustomSwitch(
+                                                  value: isSwitched,
+                                                  onChanged: (value){
+                                                    setState(() {
+                                                      isSwitched=!isSwitched;
+                                                    });
+                                                  },
+                                                  width: 52,
+                                                  height: 30,
+                                                  enableColor: Theme.of(context).primaryColor,
+                                                  disableColor: AppColors.grey8,
+                                                  switchHeight: 50,switchWidth: 27,
+                                                )),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Text("\$0.75",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall,color: AppColors.grey4),),
+                                  ],
+                                ),
+                              ),
+                              Divider(color: AppColors.grey8,),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20,bottom: 5,top: 5,right: 35),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text("Onions",style: robotoMedium.copyWith(fontSize: Dimensions.fontSizeDefault),),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              //margin: EdgeInsets.only(left: 20),
+                                              //padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
+                                                child:CustomSwitch(
+                                                  value: isSwitched,
+                                                  onChanged: (value){
+                                                    setState(() {
+                                                      isSwitched=!isSwitched;
+                                                    });
+                                                  },
+                                                  width: 52,
+                                                  height: 30,
+                                                  enableColor: Theme.of(context).primaryColor,
+                                                  disableColor: AppColors.grey8,
+                                                  switchHeight: 50,switchWidth: 27,
+                                                )),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Text("\$0.75",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall,color: AppColors.grey4),),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
       appBar: AppBar(
         leadingWidth: 250,
         backgroundColor: Theme.of(context).textTheme.bodyLarge!.color?.withOpacity(0.85),
@@ -351,19 +909,22 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
                             children: [
                               Expanded(
                                 flex: 10,
-                                child: ListTile(
-                                  leading: Container(
-                                  //  height: 45,width: 45,
-                                  /*  decoration: BoxDecoration(
-                                      border: Border.all(
-                                        width: 1.3,
-                                        color: AppColors.grey5
-                                      ),
-                                    ),*/
-                                    child: Image.asset("assets/image/burger.png"),
-                                  ), 
-                                  title: Text("Double Whooper",style: robotoMedium,),
-                                  subtitle: Text("\$5.65",style: robotoMedium.copyWith(color: AppColors.grey5),),
+                                child: InkWell(
+                                  onTap: (){_scaffoldKey.currentState!.openEndDrawer();},
+                                  child: ListTile(
+                                    leading: Container(
+                                    //  height: 45,width: 45,
+                                    /*  decoration: BoxDecoration(
+                                        border: Border.all(
+                                          width: 1.3,
+                                          color: AppColors.grey5
+                                        ),
+                                      ),*/
+                                      child: Image.asset("assets/image/burger.png"),
+                                    ),
+                                    title: Text("Double Whooper",style: robotoMedium,),
+                                    subtitle: Text("\$5.65",style: robotoMedium.copyWith(color: AppColors.grey5),),
+                                  ),
                                 ),
                               ),
                               Expanded(
@@ -381,7 +942,7 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
                                           },
                                           width: 52,
                                           height: 30,
-                                          enableColor: AppColors.primaryClr,
+                                          enableColor:Theme.of(context).primaryColor,
                                           disableColor: AppColors.grey8,
                                           switchHeight: 50,switchWidth: 27,
                                         )),
@@ -404,7 +965,7 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
                                           },
                                           width: 52,
                                           height: 30,
-                                          enableColor: AppColors.primaryClr,
+                                          enableColor: Theme.of(context).primaryColor,
                                           disableColor: AppColors.grey8,
                                           switchHeight: 50,switchWidth: 27,
                                         )),

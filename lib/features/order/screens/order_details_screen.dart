@@ -1105,12 +1105,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
-                border: Border.all(color: AppColors.primaryClr, width: 1.3),
+                border: Border.all(color: Theme.of(context).primaryColor, width: 1.3),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
                 StringFormater.formatString(data.orderType ?? ""),
-                style: robotoRegular.copyWith(color: AppColors.primaryClr),
+                style: robotoRegular.copyWith(color: Theme.of(context).primaryColor),
               ),
             ),
           ],

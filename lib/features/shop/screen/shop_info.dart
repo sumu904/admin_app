@@ -33,7 +33,6 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
     return   Scaffold(
       key: _scaffoldKey,
       endDrawer: Container(
-        width: 358,
         child: Drawer(
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
@@ -51,7 +50,7 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
                           borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8),bottomRight: Radius.circular(8)),
                           child: Image.asset("assets/image/IMG.png",fit: BoxFit.cover,)),
                       Positioned(
-                          bottom: 310,
+                          bottom: 250,
                           left: 20,
                           child: InkWell(
                             onTap: (){
@@ -111,8 +110,6 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
                         //Text("Flame-grilled beef patties with juicy tomatoes, crisp lettuce, creamy mayonnaise ketchup... Read more",style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall),),
                         SizedBox(height: 15,),
                         Container(
-                          height: size.height*0.14,
-                          width: size.width*0.328,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(width: 1,color: AppColors.grey8)
@@ -205,7 +202,7 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
                                         padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
                                         child: Text("Items",style: robotoRegular.copyWith(color: AppColors.grey3),)),
                                   ), Expanded(
-                                    flex: 5,
+                                    flex: 7,
                                     child: Container(
                                         decoration: BoxDecoration(
                                           color: AppColors.grey10,
@@ -302,7 +299,7 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
                                         padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
                                         child: Text("Items",style: robotoRegular.copyWith(color: AppColors.grey3),)),
                                   ), Expanded(
-                                    flex: 5,
+                                    flex: 7,
                                     child: Container(
                                         decoration: BoxDecoration(
                                           color: AppColors.grey10,
@@ -459,7 +456,7 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
                                         padding: EdgeInsets.only(left: 20,bottom: 10,top: 10),
                                         child: Text("Items",style: robotoRegular.copyWith(color: AppColors.grey3),)),
                                   ), Expanded(
-                                    flex: 5,
+                                    flex: 7,
                                     child: Container(
                                         decoration: BoxDecoration(
                                           color: AppColors.grey10,

@@ -216,6 +216,7 @@ class _ShopInfoScreenState extends State<ShopInfoScreen> {
                                   ),
                                 ],
                               ),
+                              //drawer done
                               Padding(
                                 padding: EdgeInsets.only(left: 20,bottom: 5,top: 10,right: 35),
                                 child: Row(
